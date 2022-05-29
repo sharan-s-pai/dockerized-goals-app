@@ -79,7 +79,7 @@ app.post("/goals", (req, res, next) => {
 
 app.delete('/goals/:id',(req,res,next)=>{
     const id=req.params.id;
-    Goals.findByIdAndDelete(id)
+    Goals.findByIdAndDelete(new Mongoose.Types.ObjectId(id))
     .then((goal)=>{
         if(!goal){
           return res.status(422).json({
