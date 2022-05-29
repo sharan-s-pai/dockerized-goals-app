@@ -1,0 +1,21 @@
+{
+  "name": "goal",
+  "version": "1.0.0",
+  "description": "Node js project for setting goals editing and deleting them",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon -L index.js"
+  },
+  "author": "Sharan S Pai",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.4",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
