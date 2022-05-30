@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+
+  mongodb: # Container name
+    
+    image: 'mongo'
+
+    volumes:
+      - mongodb-data:/data/db
+
+  node-server:
+    image: 'goals-image' 
+   
+    volumes:
+      - ./Server:/app 
+      - node_modules-pro-4:/app/node_modules
+      - ./Server/logs:/app/logs
+
+    ports:
+      - '80:80'
+    depends_on:
+      - mongodb 
+  
+  react-server:
+    image: front-end-react-image
+
+    ports:
+      - 3000:3000
+    volumes:
+      - ./client/src:/app/src
+    stdin_open: true 
+    tty: true 
+    depends_on:
+      - node-server
+ 
+volumes:
+  mongodb-data:  
+  node_modules-pro-4:
