@@ -98,7 +98,7 @@ app.delete('/goals/:id',(req,res,next)=>{
     })
 })
 
-Mongoose.connect("mongodb://mongodb:27017/goals", (err) => {
+Mongoose.connect(`mongodb://mongodb:27017/goals?authSource=admin`, (err) => {
   if (err) {
     console.log(err);
   } else {

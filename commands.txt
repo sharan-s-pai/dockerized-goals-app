@@ -1,0 +1,10 @@
+
+docker network create project-4-net
+
+// Authentication is failing and I don't know why. So try to use it without authentication.
+
+docker run -d --name="mongodb" -v mongodb-data:/data/db --network="project-4-net" -e MONGO_INITDB_ROOT_USERNAME=sharan -e MONGO_INITDB_ROOT_PASSWORD=password mongo
+
+docker run --name="node-server-4" -d -v E:/Docker/Docker-Udemy-1/Project-4/Server:/app -v node_modules-pro-4:/app/node_modules -v E:/Docker/Docker-Udemy-1/Project-4/Server/logs:/app/logs -p 80:80 --network="project-4-net" goals-image
+
+docker run --name front-end-goals -p 3000:3000 -v E:/Docker/Docker-Udemy-1/Project-4/client/src:/app/src -v node_modules-fro-p-4:/app/node_modules  --network="project-4-net" -d front-end-react-image
